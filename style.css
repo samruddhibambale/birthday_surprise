@@ -1,0 +1,1793 @@
+/*==================================================
+            PART 1
+     RESET + BODY + APP
+==================================================*/
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html,
+body{
+
+width:100%;
+height:100%;
+
+margin:0;
+padding:0;
+
+overflow-y:auto;      /* Outside browser scrollbar */
+overflow-x:hidden;
+
+font-family:'Poppins',sans-serif;
+
+background:linear-gradient(
+-45deg,
+#ff5fa2,
+#ff7eb3,
+#ff9ecf,
+#ffd1e6
+);
+
+background-size:400% 400%;
+
+animation:gradientBG 15s ease infinite;
+
+color:white;
+
+}
+
+/* Animated Background */
+
+@keyframes gradientBG{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+/*==================================================
+                    APP
+==================================================*/
+
+#app{
+
+position:relative;
+
+width:100%;
+
+min-height:100vh;
+
+overflow:visible;
+
+}
+/*==================================================
+            PART 2
+        PAGE LAYOUT
+==================================================*/
+
+/*==============================
+            PAGE
+==============================*/
+
+.page{
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100vh;
+
+display:none;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:flex-start;
+
+padding:30px 20px 100px;
+
+overflow-y:auto;
+
+overflow-x:hidden;
+
+scroll-behavior:smooth;
+
+}
+
+/*==============================
+        ACTIVE PAGE
+==============================*/
+
+.page.active{
+
+display:flex;
+
+animation:pageFade .6s ease;
+
+}
+
+/*==============================
+        PAGE ANIMATION
+==============================*/
+
+@keyframes pageFade{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/*==============================
+            CARD
+==============================*/
+
+.card{
+
+width:90%;
+
+max-width:900px;
+
+margin:30px auto 70px;
+
+padding:35px;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(15px);
+
+-webkit-backdrop-filter:blur(15px);
+
+border-radius:30px;
+
+border:1px solid rgba(255,255,255,.18);
+
+box-shadow:
+
+0 20px 45px rgba(0,0,0,.28);
+
+text-align:center;
+
+overflow:visible;
+
+flex-shrink:0;
+
+transition:.35s;
+
+}
+
+.card:hover{
+
+transform:translateY(-3px);
+
+}
+
+/*==============================
+      INSIDE PAGE SCROLLBAR
+==============================*/
+
+.page::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+.page::-webkit-scrollbar-track{
+
+background:rgba(255,255,255,.12);
+
+border-radius:20px;
+
+}
+
+.page::-webkit-scrollbar-thumb{
+
+background:#ff4d88;
+
+border-radius:20px;
+
+}
+
+.page::-webkit-scrollbar-thumb:hover{
+
+background:#ff006e;
+
+}
+
+/* Firefox */
+
+.page{
+
+scrollbar-width:thin;
+
+scrollbar-color:#ff4d88 rgba(255,255,255,.12);
+
+}
+
+/*==============================
+      BROWSER SCROLLBAR
+==============================*/
+
+body::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+body::-webkit-scrollbar-track{
+
+background:rgba(255,255,255,.10);
+
+}
+
+body::-webkit-scrollbar-thumb{
+
+background:#ff4d88;
+
+border-radius:20px;
+
+}
+
+body::-webkit-scrollbar-thumb:hover{
+
+background:#ff006e;
+
+}
+/*==================================================
+            PART 3
+      TEXT + BUTTONS + GIFT
+==================================================*/
+
+/*==============================
+            HEADINGS
+==============================*/
+
+h1{
+
+font-family:'Great Vibes',cursive;
+
+font-size:3.8rem;
+
+margin-bottom:20px;
+
+text-align:center;
+
+text-shadow:
+
+0 0 15px white,
+
+0 0 30px hotpink;
+
+}
+
+h2{
+
+font-size:2rem;
+
+font-weight:600;
+
+margin-bottom:18px;
+
+text-align:center;
+
+}
+
+p{
+
+font-size:1.1rem;
+
+line-height:2;
+
+text-align:center;
+
+margin-bottom:20px;
+
+}
+
+/*==============================
+      BIRTHDAY TITLES
+==============================*/
+
+.birthdayTitle{
+
+font-size:4rem;
+
+color:#fff;
+
+text-shadow:
+
+0 0 20px #fff,
+
+0 0 40px hotpink,
+
+0 0 70px deeppink;
+
+animation:titleGlow 2s infinite alternate;
+
+}
+
+.nameTitle{
+
+font-size:3rem;
+
+margin-top:10px;
+
+color:#fff;
+
+text-shadow:
+
+0 0 15px white,
+
+0 0 35px #ff4d88;
+
+}
+
+/*==============================
+      TITLE GLOW
+==============================*/
+
+@keyframes titleGlow{
+
+from{
+
+text-shadow:
+
+0 0 15px white,
+
+0 0 30px hotpink;
+
+}
+
+to{
+
+text-shadow:
+
+0 0 30px white,
+
+0 0 60px deeppink;
+
+}
+
+}
+
+/*==============================
+            BUTTON
+==============================*/
+
+button{
+
+margin-top:25px;
+
+padding:15px 38px;
+
+font-size:18px;
+
+font-weight:bold;
+
+color:white;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+background:linear-gradient(
+90deg,
+#ff4d88,
+#ff006e
+);
+
+box-shadow:
+
+0 10px 30px rgba(255,20,147,.35);
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:translateY(-3px) scale(1.05);
+
+box-shadow:
+
+0 0 30px hotpink;
+
+}
+
+button:active{
+
+transform:scale(.97);
+
+}
+
+/*==============================
+          GIFT BOX
+==============================*/
+
+#giftBox{
+
+width:140px;
+
+height:140px;
+
+margin:30px auto;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:85px;
+
+cursor:pointer;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.18);
+
+border:2px solid rgba(255,255,255,.25);
+
+box-shadow:
+
+0 15px 40px rgba(0,0,0,.25);
+
+transition:.4s;
+
+animation:giftFloat 2.5s infinite;
+
+}
+
+#giftBox:hover{
+
+transform:scale(1.08) rotate(-5deg);
+
+}
+
+.openGift{
+
+animation:giftOpen .8s forwards;
+
+}
+
+@keyframes giftFloat{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+}
+
+@keyframes giftOpen{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.25) rotate(10deg);
+
+}
+
+100%{
+
+transform:scale(0);
+
+opacity:0;
+
+}
+
+}
+
+/*==============================
+      BIRTHDAY ICONS
+==============================*/
+
+.birthdayIcons{
+
+font-size:2rem;
+
+margin-top:25px;
+
+animation:iconsBounce 2s infinite;
+
+}
+
+@keyframes iconsBounce{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+}
+/*==================================================
+            PART 4
+      LETTER + GALLERY + MODAL
+==================================================*/
+
+/*==============================
+        MESSAGE CARD
+==============================*/
+
+.messageCard{
+
+max-width:900px;
+
+}
+
+/*==============================
+        TYPEWRITER
+==============================*/
+
+#typewriter{
+
+margin-top:20px;
+
+font-size:1.15rem;
+
+line-height:2;
+
+white-space:pre-wrap;
+
+text-align:left;
+
+min-height:320px;
+
+padding:25px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.12);
+
+border:1px solid rgba(255,255,255,.18);
+
+box-shadow:0 10px 30px rgba(0,0,0,.20);
+
+}
+
+/*==============================
+      REASON CARDS
+==============================*/
+
+.reasons{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+gap:20px;
+
+margin-top:30px;
+
+}
+
+.reason-card{
+
+padding:20px;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.15);
+
+border:1px solid rgba(255,255,255,.18);
+
+box-shadow:0 10px 25px rgba(0,0,0,.18);
+
+opacity:0;
+
+transform:translateY(30px);
+
+transition:.6s;
+
+line-height:1.8;
+
+}
+
+.reason-card.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+.reason-card:hover{
+
+transform:translateY(-5px);
+
+background:rgba(255,255,255,.20);
+
+}
+
+/*==============================
+        GALLERY
+==============================*/
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:20px;
+
+margin:30px 0;
+
+}
+
+.photo{
+
+overflow:hidden;
+
+border-radius:18px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+}
+
+.photo img{
+
+width:100%;
+
+height:260px;
+
+object-fit:cover;
+
+cursor:pointer;
+
+transition:.4s;
+
+display:block;
+
+}
+
+.photo img:hover{
+
+transform:scale(1.08);
+
+}
+
+/*==============================
+      IMAGE MODAL
+==============================*/
+
+#imageModal{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+display:none;
+
+justify-content:center;
+
+align-items:center;
+
+background:rgba(0,0,0,.85);
+
+z-index:9999;
+
+padding:20px;
+
+}
+
+#modalImage{
+
+max-width:90%;
+
+max-height:90%;
+
+border-radius:20px;
+
+box-shadow:0 0 35px rgba(255,255,255,.30);
+
+}
+
+#imageModal span{
+
+position:absolute;
+
+top:20px;
+
+right:35px;
+
+font-size:45px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+color:white;
+
+transition:.3s;
+
+}
+
+#imageModal span:hover{
+
+transform:scale(1.2);
+
+color:#ff4d88;
+
+}
+
+/*==============================
+      MESSAGE BUTTON
+==============================*/
+
+#messageNextBtn{
+
+margin-top:30px;
+
+}
+
+/*==============================
+      GALLERY RESPONSIVE
+==============================*/
+
+@media(max-width:768px){
+
+.gallery{
+
+grid-template-columns:1fr;
+
+}
+
+.photo img{
+
+height:220px;
+
+}
+
+}
+/*==================================================
+            PART 5
+     HEARTS + SPARKLES + BALLOONS
+==================================================*/
+
+/*==============================
+        FLOATING HEART
+==============================*/
+
+.heart{
+
+position:fixed;
+
+bottom:-60px;
+
+font-size:28px;
+
+pointer-events:none;
+
+z-index:999;
+
+animation:heartFloat linear forwards;
+
+}
+
+@keyframes heartFloat{
+
+0%{
+
+transform:translateY(0) scale(.8);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120vh) scale(1.5);
+
+opacity:0;
+
+}
+
+}
+
+/*==============================
+          SPARKLES
+==============================*/
+
+.sparkle{
+
+position:fixed;
+
+bottom:-40px;
+
+font-size:22px;
+
+pointer-events:none;
+
+z-index:998;
+
+animation:sparkleFloat linear forwards;
+
+}
+
+@keyframes sparkleFloat{
+
+0%{
+
+transform:translateY(0) rotate(0deg);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120vh) rotate(360deg);
+
+opacity:0;
+
+}
+
+}
+
+/*==============================
+          BALLOONS
+==============================*/
+
+.balloon{
+
+position:fixed;
+
+bottom:-180px;
+
+width:70px;
+
+height:90px;
+
+border-radius:50%;
+
+z-index:1;
+
+opacity:.9;
+
+animation:balloonFloat linear infinite;
+
+}
+
+.balloon::after{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+top:90px;
+
+width:2px;
+
+height:120px;
+
+background:white;
+
+transform:translateX(-50%);
+
+}
+
+@keyframes balloonFloat{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+100%{
+
+transform:translateY(-130vh);
+
+}
+
+}
+
+/*==============================
+      HEART GLOW
+==============================*/
+
+.heart,
+
+.sparkle{
+
+filter:
+
+drop-shadow(0 0 10px white)
+
+drop-shadow(0 0 20px hotpink);
+
+}
+
+/*==============================
+      CARD HOVER GLOW
+==============================*/
+
+.card:hover{
+
+box-shadow:
+
+0 20px 45px rgba(0,0,0,.35),
+
+0 0 35px rgba(255,77,136,.4);
+
+}
+
+/*==============================
+      BUTTON GLOW
+==============================*/
+
+button:hover{
+
+box-shadow:
+
+0 0 20px #ff4d88,
+
+0 0 40px #ff006e;
+
+}
+
+/*==============================
+      GIFT GLOW
+==============================*/
+
+#giftBox{
+
+box-shadow:
+
+0 15px 40px rgba(0,0,0,.25),
+
+0 0 25px rgba(255,255,255,.25);
+
+}
+
+#giftBox:hover{
+
+box-shadow:
+
+0 20px 45px rgba(0,0,0,.35),
+
+0 0 45px hotpink;
+
+}
+
+/*==============================
+     IMAGE HOVER EFFECT
+==============================*/
+
+.photo img:hover{
+
+transform:scale(1.08) rotate(2deg);
+
+box-shadow:
+
+0 15px 35px rgba(255,77,136,.45);
+
+}
+
+/*==============================
+      REASON CARD HOVER
+==============================*/
+
+.reason-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+
+0 15px 35px rgba(255,77,136,.35);
+
+}
+
+/*==============================
+      TITLE SHIMMER
+==============================*/
+
+.finalTitle,
+
+.proposalTitle,
+
+.birthdayTitle{
+
+animation:glowTitle 2s ease-in-out infinite alternate;
+
+}
+
+@keyframes glowTitle{
+
+from{
+
+text-shadow:
+
+0 0 15px #fff,
+
+0 0 25px #ff4d88;
+
+}
+
+to{
+
+text-shadow:
+
+0 0 25px #fff,
+
+0 0 50px #ff006e;
+
+}
+
+}
+/*==================================================
+            PART 6
+     NETFLIX + VIDEO + PROPOSAL
+==================================================*/
+
+/*==============================
+        NETFLIX INTRO
+==============================*/
+
+.netflixIntro{
+
+width:100%;
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:#000;
+
+}
+
+#introText{
+
+font-size:5rem;
+
+font-weight:bold;
+
+color:#e50914;
+
+text-shadow:
+0 0 20px #e50914,
+0 0 40px #ff2a2a;
+
+text-align:center;
+
+}
+
+.fadeIn{
+
+animation:fadeIn .7s forwards;
+
+}
+
+.fadeOut{
+
+animation:fadeOut .7s forwards;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:scale(.9);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+@keyframes fadeOut{
+
+from{
+
+opacity:1;
+
+}
+
+to{
+
+opacity:0;
+
+}
+
+}
+
+/*==============================
+          VIDEO
+==============================*/
+
+#birthdayVideo{
+
+width:100%;
+
+max-width:900px;
+
+border-radius:20px;
+
+box-shadow:
+0 20px 45px rgba(0,0,0,.35);
+
+margin-top:20px;
+
+}
+
+/*==============================
+      PROPOSAL CARD
+==============================*/
+
+.proposalCard{
+
+position:relative;
+
+min-height:520px;
+
+}
+
+.proposalTitle{
+
+font-size:3.5rem;
+
+margin-bottom:20px;
+
+}
+
+.proposalText{
+
+font-size:1.2rem;
+
+line-height:2;
+
+}
+
+/*==============================
+      PROPOSAL BUTTONS
+==============================*/
+
+.proposalButtons{
+
+margin-top:35px;
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+}
+
+/*==============================
+        YES BUTTON
+==============================*/
+
+.yesBtn{
+
+background:linear-gradient(
+90deg,
+#00c853,
+#00e676
+);
+
+color:white;
+
+padding:16px 40px;
+
+font-size:20px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+transition:.3s;
+
+box-shadow:
+0 10px 30px rgba(0,200,83,.35);
+
+}
+
+.yesBtn:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+0 0 25px #00ff6a;
+
+}
+
+/*==============================
+         NO BUTTON
+==============================*/
+
+.noBtn{
+
+background:linear-gradient(
+90deg,
+#ff4d88,
+#ff006e
+);
+
+color:white;
+
+padding:16px 40px;
+
+font-size:20px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.noBtn:hover{
+
+transform:scale(1.08);
+
+}
+
+/*==============================
+        MOBILE
+==============================*/
+
+@media(max-width:768px){
+
+#introText{
+
+font-size:3rem;
+
+}
+
+.proposalTitle{
+
+font-size:2.4rem;
+
+}
+
+.proposalButtons{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.yesBtn,
+.noBtn{
+
+width:220px;
+
+}
+
+}
+/*==================================================
+            PART 7
+      FINAL PAGE + LOADING
+==================================================*/
+
+/*==============================
+        FINAL CARD
+==============================*/
+
+.finalCard{
+
+max-width:900px;
+
+text-align:center;
+
+}
+
+/*==============================
+        FINAL TITLE
+==============================*/
+
+.finalTitle{
+
+font-size:3.5rem;
+
+margin-bottom:25px;
+
+color:#fff;
+
+text-shadow:
+0 0 15px #fff,
+0 0 30px #ff4d88,
+0 0 50px #ff006e;
+
+}
+
+/*==============================
+      LOADING SECTION
+==============================*/
+
+#loadingContainer{
+
+margin-top:30px;
+
+}
+
+/*==============================
+      PROGRESS BAR
+==============================*/
+
+.progressBar{
+
+width:100%;
+
+height:28px;
+
+background:rgba(255,255,255,.18);
+
+border-radius:40px;
+
+overflow:hidden;
+
+margin:30px auto;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.20);
+
+}
+
+/*==============================
+      PROGRESS FILL
+==============================*/
+
+#progressFill{
+
+width:0%;
+
+height:100%;
+
+background:linear-gradient(
+90deg,
+#ff4d88,
+#ff006e,
+#ff7eb3
+);
+
+border-radius:40px;
+
+transition:width .2s linear;
+
+}
+
+/*==============================
+      PROGRESS TEXT
+==============================*/
+
+#progressText{
+
+font-size:2rem;
+
+font-weight:bold;
+
+margin-top:15px;
+
+color:white;
+
+text-shadow:
+0 0 12px white;
+
+}
+
+/*==============================
+      FINAL MESSAGE
+==============================*/
+
+#finalMessage{
+
+animation:fadeFinal 1.2s ease;
+
+}
+
+#finalMessage p{
+
+font-size:1.15rem;
+
+line-height:2;
+
+margin-top:20px;
+
+}
+
+/*==============================
+      FADE ANIMATION
+==============================*/
+
+@keyframes fadeFinal{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/*==============================
+      FINAL GLOW
+==============================*/
+
+#finalMessage h2{
+
+font-size:2.4rem;
+
+color:white;
+
+text-shadow:
+0 0 20px white,
+0 0 40px hotpink;
+
+}
+
+/*==============================
+      END BUTTON
+==============================*/
+
+.finalCard button{
+
+margin-top:30px;
+
+}
+/*==================================================
+            PART 8
+      RESPONSIVE + FINAL POLISH
+==================================================*/
+
+/*==============================
+        MOBILE DEVICES
+==============================*/
+
+@media screen and (max-width:768px){
+
+.card{
+
+width:95%;
+
+padding:20px;
+
+margin:20px auto 70px;
+
+}
+
+h1{
+
+font-size:2.4rem;
+
+}
+
+h2{
+
+font-size:1.5rem;
+
+}
+
+p{
+
+font-size:1rem;
+
+line-height:1.8;
+
+}
+
+button{
+
+width:100%;
+
+font-size:16px;
+
+padding:14px;
+
+}
+
+#giftBox{
+
+width:110px;
+
+height:110px;
+
+font-size:65px;
+
+}
+
+.birthdayTitle{
+
+font-size:2.3rem;
+
+}
+
+.nameTitle{
+
+font-size:2rem;
+
+}
+
+.gallery{
+
+grid-template-columns:1fr;
+
+}
+
+.photo img{
+
+height:220px;
+
+}
+
+#birthdayVideo{
+
+width:100%;
+
+}
+
+}
+
+/*==============================
+          TABLETS
+==============================*/
+
+@media screen and (min-width:769px) and (max-width:1024px){
+
+.card{
+
+width:92%;
+
+max-width:850px;
+
+}
+
+.gallery{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+/*==============================
+      LARGE LAPTOPS
+==============================*/
+
+@media screen and (min-width:1200px){
+
+.card{
+
+max-width:900px;
+
+}
+
+}
+
+/*==============================
+      SMOOTH SCROLL
+==============================*/
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+/*==============================
+      BODY SCROLLBAR
+==============================*/
+
+body::-webkit-scrollbar{
+
+width:12px;
+
+}
+
+body::-webkit-scrollbar-track{
+
+background:rgba(255,255,255,.15);
+
+}
+
+body::-webkit-scrollbar-thumb{
+
+background:#ff4d88;
+
+border-radius:20px;
+
+}
+
+body::-webkit-scrollbar-thumb:hover{
+
+background:#ff006e;
+
+}
+
+/*==============================
+      PAGE SCROLLBAR
+==============================*/
+
+.page::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+.page::-webkit-scrollbar-track{
+
+background:rgba(255,255,255,.08);
+
+}
+
+.page::-webkit-scrollbar-thumb{
+
+background:#ff4d88;
+
+border-radius:20px;
+
+}
+
+.page::-webkit-scrollbar-thumb:hover{
+
+background:#ff006e;
+
+}
+
+/* Firefox */
+
+.page{
+
+scrollbar-width:thin;
+
+scrollbar-color:#ff4d88 rgba(255,255,255,.08);
+
+}
+
+/*==============================
+      SELECTION COLOR
+==============================*/
+
+::selection{
+
+background:#ff4d88;
+
+color:white;
+
+}
+
+/*==============================
+      REMOVE BLUE TAP
+==============================*/
+
+button,
+img,
+video,
+#giftBox{
+
+-webkit-tap-highlight-color:transparent;
+
+}
+
+/*==============================
+      FINAL POLISH
+==============================*/
+
+img{
+
+max-width:100%;
+
+display:block;
+
+}
+
+video{
+
+display:block;
+
+margin:auto;
+
+}
+
+button{
+
+outline:none;
+
+}
+
+button:focus{
+
+outline:none;
+
+box-shadow:0 0 20px rgba(255,77,136,.5);
+
+}

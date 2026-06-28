@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta
+name="theme-color"
+content="#ff4d88">
+
+<title>Happy Birthday Shubham ❤️</title>
+
+<link
+rel="stylesheet"
+href="style.css">
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Great+Vibes&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- MUSIC -->
+<!-- ========================= -->
+
+<audio id="music" loop>
+
+<source
+src="music.mp3"
+type="audio/mpeg">
+
+</audio>
+
+<audio id="romanticMusic" loop>
+
+<source
+src="romantic.mp3"
+type="audio/mpeg">
+
+</audio>
+
+<!-- ========================= -->
+<!-- CONFETTI -->
+<!-- ========================= -->
+
+<canvas id="confetti"></canvas>
+
+<!-- ========================= -->
+<!-- MAIN APP -->
+<!-- ========================= -->
+
+<div id="app">
+
+<!-- ========================= -->
+<!-- PAGE 1 -->
+<!-- ========================= -->
+
+<section
+class="page active"
+id="page1">
+
+<div class="card">
+
+<h1>🎁</h1>
+
+<h2>A Special Surprise</h2>
+
+<p>
+
+Hey <strong>Shubham</strong> ❤️
+
+<br><br>
+
+Someone has prepared something truly special just for you.
+
+<br><br>
+
+Today is all about celebrating YOU.
+
+<br><br>
+
+Click the gift below and let your surprise begin...
+
+</p>
+
+<div id="giftBox">
+
+🎁
+
+</div>
+
+<button id="giftButton">
+
+Open My Gift ❤️
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 2 -->
+<!-- ========================= -->
+
+<section
+class="page"
+id="page2">
+
+<div class="card">
+
+<h1 class="birthdayTitle">
+
+🎉 Happy Birthday 🎉
+
+</h1>
+
+<h2 class="nameTitle">
+
+SHUBHAM ❤️
+
+</h2>
+
+<p>
+
+Today is your special day.
+
+<br><br>
+
+May your smile always shine brighter than the stars.
+
+<br><br>
+
+May your dreams become reality.
+
+<br><br>
+
+May success, happiness and love always stay beside you.
+
+<br><br>
+
+You deserve every beautiful thing this world has to offer.
+
+</p>
+
+<div class="birthdayIcons">
+
+🎂 🎉 🎈 🎁 ❤️ 🎊
+
+</div>
+
+<button onclick="nextPage(3)">
+
+Continue ❤️
+
+</button>
+
+</div>
+
+</section>
+<!-- ========================= -->
+<!-- PAGE 3 : LETTER -->
+<!-- ========================= -->
+
+<section class="page" id="page3">
+
+<div class="card messageCard">
+
+<h1>💌 A Letter For You</h1>
+
+<div id="typewriter"></div>
+
+<button
+id="messageNextBtn"
+onclick="nextPage(4)"
+style="display:none;">
+
+Continue ❤️
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 4 : WHY YOU'RE SPECIAL -->
+<!-- ========================= -->
+
+<section class="page" id="page4">
+
+<div class="card">
+
+<h1>🌟 Why You're Special 🌟</h1>
+
+<div class="reasons">
+
+<div class="reason-card">
+
+❤️ You have always stood beside me through every happy and difficult moment.
+
+</div>
+
+<div class="reason-card">
+
+🤝 I can always count on you no matter what.
+
+</div>
+
+<div class="reason-card">
+
+😊 Your smile instantly makes every day brighter.
+
+</div>
+
+<div class="reason-card">
+
+🌈 You make every difficult situation feel easier.
+
+</div>
+
+<div class="reason-card">
+
+💖 Your kindness and caring heart make you truly special.
+
+</div>
+
+<div class="reason-card">
+
+✨ Life became more beautiful because you're a part of it.
+
+</div>
+
+</div>
+
+<button onclick="nextPage(5)">
+
+See Our Memories ❤️
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 5 : MEMORIES -->
+<!-- ========================= -->
+
+<section class="page" id="page5">
+
+<div class="card">
+
+<h1>
+
+📸 Our Beautiful Memories 📸
+
+</h1>
+
+<p>
+
+Every picture tells a story.
+
+<br><br>
+
+Every smile reminds me of a beautiful memory.
+
+<br><br>
+
+Thank you for making every moment unforgettable.
+
+❤️
+
+</p>
+
+<div class="gallery">
+
+<div class="photo">
+
+<img
+src="images/1.jpg"
+alt="Memory 1"
+onclick="openImage(this.src)">
+
+</div>
+
+<div class="photo">
+
+<img
+src="images/2.jpg"
+alt="Memory 2"
+onclick="openImage(this.src)">
+
+</div>
+
+<div class="photo">
+
+<img
+src="images/3.jpg"
+alt="Memory 3"
+onclick="openImage(this.src)">
+
+</div>
+
+</div>
+
+<br>
+
+<button onclick="nextPage(6)">
+
+Continue ❤️
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- IMAGE MODAL -->
+<!-- ========================= -->
+
+<div id="imageModal">
+
+<span onclick="closeImage()">
+
+&times;
+
+</span>
+
+<img
+id="modalImage"
+alt="Memory Preview">
+
+</div>
+<!-- ========================= -->
+<!-- PAGE 6 : BEFORE YOU GO -->
+<!-- ========================= -->
+
+<section class="page" id="page6">
+
+<div class="card">
+
+<h1>❤️ Before You Go... ❤️</h1>
+
+<p>
+
+You've seen our memories.
+
+<br><br>
+
+You've read my letter.
+
+<br><br>
+
+But I still have one last surprise waiting just for you...
+
+</p>
+
+<button onclick="startNetflixIntro()">
+
+🎁 Click For Your Final Surprise
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 7 : NETFLIX INTRO -->
+<!-- ========================= -->
+
+<section class="page" id="page7">
+
+<div class="netflixIntro">
+
+<h1 id="introText">
+
+One Last Thing...
+
+</h1>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 8 : VIDEO -->
+<!-- ========================= -->
+
+<section class="page" id="page8">
+
+<div class="card">
+
+<h1>🎥 A Special Video For You ❤️</h1>
+
+<p>
+
+I made this little surprise with lots of love.
+
+<br><br>
+
+I hope it makes you smile today.
+
+❤️
+
+</p>
+
+<video
+id="birthdayVideo"
+controls
+playsinline
+controlsList="nodownload"
+style="width:100%;max-width:900px;border-radius:20px;">
+
+<source src="birthday_video.mp4" type="video/mp4">
+
+Your browser does not support the video tag.
+
+</video>
+
+<br><br>
+
+<button onclick="nextPage(9)">
+
+Next Surprise ❤️
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 9 : PROPOSAL -->
+<!-- ========================= -->
+
+<section class="page" id="page9">
+
+<div class="card proposalCard">
+
+<h1 class="proposalTitle">
+
+❤️ One Last Question ❤️
+
+</h1>
+
+<p class="proposalText">
+
+Before today ends...
+
+<br><br>
+
+There is something I've wanted to ask you for a long time.
+
+</p>
+
+<br>
+
+<p class="proposalText">
+
+You make every day happier.
+
+<br>
+
+You make life brighter.
+
+<br>
+
+You make ordinary moments feel special.
+
+<br><br>
+
+And I'd love to create even more beautiful memories with you.
+
+❤️
+
+</p>
+
+<br>
+
+<h2>
+
+Will You Go On A Date With Me?
+
+🥺❤️
+
+</h2>
+
+<div class="proposalButtons">
+
+<button
+class="yesBtn"
+onclick="yesClicked()">
+
+❤️ YES ❤️
+
+</button>
+
+<button
+id="noBtn"
+class="noBtn"
+onmouseover="moveNoButton()"
+onclick="moveNoButton()">
+
+🙈 NO
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+<!-- ========================= -->
+<!-- PAGE 10 : YES PAGE -->
+<!-- ========================= -->
+
+<section class="page" id="page10">
+
+<div class="card">
+
+<h1>
+
+💖 YAYYYYY!! 💖
+
+</h1>
+
+<p>
+
+You just made me the happiest person.
+
+❤️
+
+<br><br>
+
+I promise...
+
+<br><br>
+
+❤️ To always make you smile.
+
+<br>
+
+❤️ To always support you.
+
+<br>
+
+❤️ To always stand beside you.
+
+<br>
+
+❤️ To make beautiful memories together.
+
+<br>
+
+❤️ To celebrate every birthday with you.
+
+</p>
+
+<br>
+
+<h2>
+
+Thank You
+
+For Existing.
+
+❤️
+
+</h2>
+
+<button onclick="nextPage(11)">
+
+One Last Message ❤️
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 11 : GRAND FINALE -->
+<!-- ========================= -->
+
+<section class="page" id="page11">
+
+<div class="card finalCard">
+
+<h1 class="finalTitle">
+
+❤️ Forever Starts With Us ❤️
+
+</h1>
+
+<div id="loadingContainer">
+
+<h2>
+
+Loading Our Future...
+
+❤️
+
+</h2>
+
+<div class="progressBar">
+
+<div id="progressFill"></div>
+
+</div>
+
+<h2 id="progressText">
+
+0%
+
+</h2>
+
+</div>
+
+<div id="finalMessage" style="display:none;">
+
+<h2>
+
+✨ Future Successfully Loaded ✨
+
+</h2>
+
+<br>
+
+<p>
+
+Every birthday comes once a year...
+
+<br><br>
+
+But someone like you comes only once in a lifetime.
+
+<br><br>
+
+Thank you for being my happiness,
+
+my safe place,
+
+my biggest comfort,
+
+and one of the most beautiful parts of my life.
+
+<br><br>
+
+I hope this birthday becomes one of your favorite memories.
+
+<br><br>
+
+No matter where life takes us,
+
+I will always pray for your happiness,
+
+your dreams,
+
+your smile,
+
+and your success.
+
+<br><br>
+
+I hope we create countless more memories together,
+
+laugh together,
+
+celebrate together,
+
+and always stay close to each other.
+
+<br><br>
+
+Happy Birthday,
+
+My Favorite Person.
+
+❤️
+
+</p>
+
+<br>
+
+<h2>
+
+Forever Yours,
+
+❤️ BABU ❤️
+
+</h2>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+<!-- ========================= -->
+<!-- FLOATING BALLOONS -->
+<!-- ========================= -->
+
+<div class="balloon"
+style="left:5%;background:#ff4d88;animation-duration:12s;"></div>
+
+<div class="balloon"
+style="left:25%;background:#ff9ecf;animation-duration:10s;"></div>
+
+<div class="balloon"
+style="left:45%;background:#ffd166;animation-duration:13s;"></div>
+
+<div class="balloon"
+style="left:65%;background:#ff69b4;animation-duration:11s;"></div>
+
+<div class="balloon"
+style="left:85%;background:#c77dff;animation-duration:14s;"></div>
+
+<!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
